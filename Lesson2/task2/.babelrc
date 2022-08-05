@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "targets": "last 2 versions, > 1%"
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-template-literals"
+  ]
+}
