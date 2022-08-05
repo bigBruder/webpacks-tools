@@ -1,38 +1,3 @@
-"use strict";
-
-require("core-js/modules/es.symbol.js");
-
-require("core-js/modules/es.symbol.description.js");
-
-require("core-js/modules/es.object.to-string.js");
-
-require("core-js/modules/es.symbol.iterator.js");
-
-require("core-js/modules/es.array.iterator.js");
-
-require("core-js/modules/es.string.iterator.js");
-
-require("core-js/modules/web.dom-collections.iterator.js");
-
-require("core-js/modules/es.array.from.js");
-
-require("core-js/modules/es.array.slice.js");
-
-require("core-js/modules/es.function.name.js");
-
-require("core-js/modules/es.regexp.exec.js");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.renderTasks = void 0;
-
-require("core-js/modules/es.array.map.js");
-
-require("core-js/modules/es.array.sort.js");
-
-var _storage = require("./storage.js");
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -45,6 +10,20 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+import "core-js/modules/es.array.map.js";
+import "core-js/modules/es.array.sort.js";
+import "core-js/modules/es.symbol.js";
+import "core-js/modules/es.symbol.description.js";
+import "core-js/modules/es.object.to-string.js";
+import "core-js/modules/es.symbol.iterator.js";
+import "core-js/modules/es.array.iterator.js";
+import "core-js/modules/es.string.iterator.js";
+import "core-js/modules/web.dom-collections.iterator.js";
+import "core-js/modules/es.array.from.js";
+import "core-js/modules/es.array.slice.js";
+import "core-js/modules/es.function.name.js";
+import "core-js/modules/es.regexp.exec.js";
+import { getItem } from "./storage.js";
 var listElem = document.querySelector(".list");
 
 var createCheckbox = function createCheckbox(_ref) {
@@ -77,13 +56,11 @@ var createListItem = function createListItem(_ref2) {
   return listItemElem;
 };
 
-var renderTasks = function renderTasks() {
-  var tasksList = (0, _storage.getItem)("tasksList") || [];
+export var renderTasks = function renderTasks() {
+  var tasksList = getItem("tasksList") || [];
   listElem.innerHTML = "";
   var tasksElems = tasksList.sort(function (a, b) {
     return a.done - b.done;
   }).map(createListItem);
   listElem.append.apply(listElem, _toConsumableArray(tasksElems));
 };
-
-exports.renderTasks = renderTasks;
