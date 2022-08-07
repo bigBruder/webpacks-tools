@@ -45,10 +45,11 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: "./src/index.html",
       }),
-      new MiniCssExtractPlugin({
-        filename: "[name].css",
-      }),
     ],
+    devServer: {
+      port: 9000,
+      hot: true,
+    },
   };
 
   if (isProduction) {
