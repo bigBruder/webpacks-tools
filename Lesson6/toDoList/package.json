@@ -4,11 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "copy:html": "cp ./src/index.html ./dist/index.html",
-    "build": "webpack -p",
-    "watch": "webpack -d --devtools eval-source-maps -w"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server -d --devtool eval-source-map --open"
   },
   "keywords": [],
   "author": "",
@@ -27,8 +24,5 @@
     "url-loader": "^4.1.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
-  },
-  "dependencies": {
-    "core-js": "^3.24.1"
   }
 }
